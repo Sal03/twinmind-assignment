@@ -1,3 +1,90 @@
+# 🧠 TwinMind - Android Developer Interview Assignment
+
+This project is a React Native (Expo) application implementing the core requirements of the TwinMind Android Developer Interview Assignment. It includes Google Calendar integration, real-time audio recording, local transcription with offline support, and an interactive transcript display.
+
+---
+
+## 🚀 Features Implemented
+
+- 🔒 **Firebase Authentication** – Secure login system
+- 📆 **Google Calendar Integration** – Syncs user’s upcoming meetings
+- 🎙️ **Real-time Audio Recording** – High-quality audio capture using `expo-av`
+- 💬 **Simulated Transcription & Summary** – Local audio-to-text with sample outputs
+- 💡 **Interactive Transcript** – Transcript displayed and styled inline
+- 🗃️ **Local File Save** – Audio files saved using `expo-file-system`
+- 🌐 **Expo Tunnel** – Remote access via Expo’s public tunnel
+
+---
+
+## 📲 How to Run the App
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Sal03/twinmind-assignment.git
+cd twinmind-assignment
+
+Install Dependencies
+
+npm install
+
+Start the App (Web or Device)
+
+npx expo start --tunnel
+
+Press w to open the web version
+
+Press i for iOS simulator (if available)
+
+Or scan the QR code in Expo Go app
+
+Tech Stack
+React Native (Expo Router)
+
+TypeScript
+
+Firebase Auth
+
+Google Calendar API
+
+expo-av – Audio recording
+
+expo-file-system – File storage
+
+OAuthSession – Google Auth Flow
+
+Folder Structure
+.
+├── app/
+│   ├── tabs/ (index.tsx, explore.tsx, transcript.tsx, calendar.tsx)
+├── components/
+│   ├── Transcript/ (TranscriptScreen.tsx, TranscriptionUtils.ts)
+│   ├── ui/ (IconSymbol.tsx, TabBarBackground.tsx)
+├── constants/ (OAuthConfig.ts, Colors.ts)
+├── firebase.ts
+└── README.md
+
+
+
+
+
+👩‍💻 Author
+Saloni Angre
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
