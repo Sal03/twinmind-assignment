@@ -54,8 +54,6 @@ expo-file-system – File storage
 
 OAuthSession – Google Auth Flow
 
-<img width="570" alt="image" src="https://github.com/user-attachments/assets/4c23b5c9-2c06-4dbc-b8f4-0eb797a836d6" />
-
 
 Folder Structure
 .
@@ -106,6 +104,7 @@ In the output, you'll find options to open the app in a
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
 ## Get a fresh project
+<img width="570" alt="image" src="https://github.com/user-attachments/assets/4c23b5c9-2c06-4dbc-b8f4-0eb797a836d6" />
 
 When you're ready, run:
 
