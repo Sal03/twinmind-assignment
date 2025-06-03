@@ -1,6 +1,7 @@
 #  TwinMind - Android Developer Assignment
 
 This project is a React Native (Expo) application implementing the core requirements of the TwinMind Android Developer Interview Assignment. It includes Google Calendar integration, real-time audio recording, local transcription with offline support, and an interactive transcript display.
+<img width="570" alt="image" src="https://github.com/user-attachments/assets/662e3066-4244-41a5-953f-b75287c0e8d4" />
 
 ---
 
@@ -15,7 +16,7 @@ This project is a React Native (Expo) application implementing the core requirem
 -  **Expo Tunnel** – Remote access via Expo’s public tunnel
 
 ---
-<img width="1440" alt="image" src="https://github.com/user-attachments/assets/2a409e18-3e12-4b28-ba6c-36bb8980ecdf" />
+
 
 ##  How to Run the App
 
