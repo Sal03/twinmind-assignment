@@ -1,22 +1,23 @@
-# 🧠 TwinMind - Android Developer Interview Assignment
+#  TwinMind - Android Developer Assignment
 
 This project is a React Native (Expo) application implementing the core requirements of the TwinMind Android Developer Interview Assignment. It includes Google Calendar integration, real-time audio recording, local transcription with offline support, and an interactive transcript display.
 
 ---
 
-## 🚀 Features Implemented
+##  Features Implemented
 
-- 🔒 **Firebase Authentication** – Secure login system
-- 📆 **Google Calendar Integration** – Syncs user’s upcoming meetings
-- 🎙️ **Real-time Audio Recording** – High-quality audio capture using `expo-av`
-- 💬 **Simulated Transcription & Summary** – Local audio-to-text with sample outputs
-- 💡 **Interactive Transcript** – Transcript displayed and styled inline
-- 🗃️ **Local File Save** – Audio files saved using `expo-file-system`
-- 🌐 **Expo Tunnel** – Remote access via Expo’s public tunnel
+-  **Firebase Authentication** – Secure login system
+-  **Google Calendar Integration** – Syncs user’s upcoming meetings
+-  **Real-time Audio Recording** – High-quality audio capture using `expo-av`
+-  **Simulated Transcription & Summary** – Local audio-to-text with sample outputs
+-  **Interactive Transcript** – Transcript displayed and styled inline
+-  **Local File Save** – Audio files saved using `expo-file-system`
+-  **Expo Tunnel** – Remote access via Expo’s public tunnel
 
 ---
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/2a409e18-3e12-4b28-ba6c-36bb8980ecdf" />
 
-## 📲 How to Run the App
+##  How to Run the App
 
 ### 1. Clone the Repository
 ```bash
@@ -52,6 +53,9 @@ expo-file-system – File storage
 
 OAuthSession – Google Auth Flow
 
+<img width="570" alt="image" src="https://github.com/user-attachments/assets/4c23b5c9-2c06-4dbc-b8f4-0eb797a836d6" />
+
+
 Folder Structure
 .
 ├── app/
@@ -67,11 +71,11 @@ Folder Structure
 
 
 
-👩‍💻 Author
+ Author
 Saloni Angre
 
 
-# Welcome to your Expo app 👋
+# Welcome to your Expo app 
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
