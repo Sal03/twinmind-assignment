@@ -1,45 +1,39 @@
-// LoginScreen.tsx
-
-import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { useRouter } from 'expo-router';
-import { GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
-import React, { useEffect } from 'react';
-import { Alert, Button, StyleSheet, Text, View } from 'react-native';
-import { auth } from '../firebase'; // adjust path if needed
-
+import React from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const LoginScreen = () => {
-    const router = useRouter();
+  const router = useRouter();
 
-  useEffect(() => {
-    GoogleSignin.configure({
-      webClientId: '1:591546883314:web:eb6a1779ed2776216b446b', // Replace with your Firebase web client ID
-    });
-  }, []);
-
-  const signInWithGoogle = async () => {
-    try {
-      await GoogleSignin.hasPlayServices();
-      const userInfo = await GoogleSignin.signIn();
-      const tokens = await GoogleSignin.getTokens();
-      const idToken = tokens.idToken;
-  
-      const googleCredential = GoogleAuthProvider.credential(idToken);
-      const userCredential = await signInWithCredential(auth, googleCredential);
-  
-      Alert.alert('Login Successful', `Welcome ${userCredential.user.displayName}`);
-      console.log(userCredential.user);
-    } catch (error: any) {
-      console.error(error);
-      Alert.alert('Login Failed', error?.message || 'Unknown error');
-    }
+  const handleGoogleLogin = () => {
+    router.push('/calendar');
   };
-  
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>TwinMind App</Text>
-      <Button title="Sign in with Google" onPress={signInWithGoogle} />
+      <Text style={styles.title}>Login</Text>
+
+      <View style={styles.logoWrapper}>
+        <Image
+          source={require('../assets/images/twinmind-logo.png')}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+      </View>
+
+      <TouchableOpacity style={styles.googleButton} onPress={handleGoogleLogin}>
+        <Text style={styles.googleText}>Continue with Google</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.appleButton}>
+        <Text style={styles.appleText}>Continue with Apple</Text>
+      </TouchableOpacity>
+
+      <View style={styles.footerLinks}>
+        <Text style={styles.linkText}>Privacy Policy</Text>
+        <Text style={styles.separator}>|</Text>
+        <Text style={styles.linkText}>Terms of Service</Text>
+      </View>
     </View>
   );
 };
@@ -49,12 +43,65 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    paddingTop: 80,
+    paddingHorizontal: 24,
+    backgroundColor: '#F2F2F2',
     alignItems: 'center',
-    backgroundColor: '#fff',
   },
   title: {
-    fontSize: 24,
-    marginBottom: 20,
+    fontSize: 18,
+    color: '#888',
+    alignSelf: 'flex-start',
+    marginBottom: 12,
+  },
+  logoWrapper: {
+    height: 360,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo: {
+    height: '100%',
+    width: '100%',
+  },
+  googleButton: {
+    width: '100%',
+    padding: 16,
+    backgroundColor: '#4285F4',
+    borderRadius: 12,
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  googleText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#FFFFFF',
+  },
+  appleButton: {
+    width: '100%',
+    padding: 16,
+    backgroundColor: '#000000',
+    borderRadius: 12,
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  appleText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#FFFFFF',
+  },
+  footerLinks: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 10,
+  },
+  linkText: {
+    fontSize: 14,
+    color: '#666',
+  },
+  separator: {
+    fontSize: 14,
+    color: '#ccc',
+    marginHorizontal: 6,
   },
 });

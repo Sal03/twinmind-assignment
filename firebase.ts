@@ -3,7 +3,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBnZwR7DQz5d-1Mw3Vx1_PhFRZlZOl0XMw",
+  apiKey: "AIzaSyBnZw7RDQz5d-IMw3Vx1_PhFRZ1ZOl0XMW",
   authDomain: "twinmind-dbdac.firebaseapp.com",
   projectId: "twinmind-dbdac",
   storageBucket: "twinmind-dbdac.appspot.com",
@@ -12,6 +12,5 @@ const firebaseConfig = {
   measurementId: "G-6Z3C0ZBN29"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);

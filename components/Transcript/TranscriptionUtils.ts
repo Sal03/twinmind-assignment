@@ -1,11 +1,9 @@
 export async function transcribeAudioAsync(uri: string): Promise<string> {
-    console.log('Simulating transcription for URI:', uri);
-  
-    // Simulated processing delay
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve("This is a mock transcription result of your recording.");
-      }, 2000);
-    });
-  }
-  
+  console.log('Simulating transcription for:', uri);
+
+  // Simulated delay to mimic async call
+  await new Promise((res) => setTimeout(res, 1000));
+
+  // Return simulated transcript
+  return 'This is a simulated transcript of your recording.';
+}

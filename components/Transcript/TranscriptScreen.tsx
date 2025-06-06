@@ -1,15 +1,24 @@
 import { Audio } from 'expo-av';
 import * as FileSystem from 'expo-file-system';
-import React, { useState } from 'react';
-import { Button, Text, View } from 'react-native';
-import { generateSummary } from './SummaryUtils'; // ✅ Import the summary utility
+import React, { useEffect, useState } from 'react';
+import { Button, FlatList, StyleSheet, Text, View } from 'react-native';
+import TabbedSection from './TabbedSection';
 import { transcribeAudioAsync } from './TranscriptionUtils';
+
 
 const TranscriptScreen = () => {
   const [recording, setRecording] = useState<Audio.Recording | null>(null);
   const [uri, setUri] = useState<string | null>(null);
-  const [transcript, setTranscript] = useState<string | null>(null);
-  const [summary, setSummary] = useState<string | null>(null); // ✅ Summary state
+  const [transcript, setTranscript] = useState<string[]>([]);
+
+  // For testing: prefill with sample transcript
+  useEffect(() => {
+    setTranscript([
+      'This is a test sentence.',
+      'Here is another sentence.',
+      'And this one completes the test.'
+    ]);
+  }, []);
 
   const requestMicPermission = async () => {
     const { status } = await Audio.requestPermissionsAsync();
@@ -32,7 +41,7 @@ const TranscriptScreen = () => {
 
       setRecording(recording);
     } catch (err) {
-      console.error('Error starting recording', err);
+      console.error('❌ Error starting recording:', err);
     }
   };
 
@@ -47,38 +56,75 @@ const TranscriptScreen = () => {
       const fileName = originalUri.split('/').pop();
       const newUri = `${FileSystem.documentDirectory}${fileName}`;
 
-      await FileSystem.copyAsync({
-        from: originalUri,
-        to: newUri,
-      });
+      await FileSystem.copyAsync({ from: originalUri, to: newUri });
 
       setUri(newUri);
       setRecording(null);
 
-      console.log('Recording saved to', newUri);
+      console.log('✅ Recording saved to:', newUri);
+      console.log('📤 Sending for transcription...');
 
-      // ✅ Simulate transcription
       const result = await transcribeAudioAsync(newUri);
-      setTranscript(result);
+      console.log('📝 Transcript received:', result);
 
-      // ✅ Generate and set summary
-      const summaryResult = generateSummary(result);
-      setSummary(summaryResult);
-
+      setTranscript(result.split('. ').filter(Boolean));
     } catch (err) {
-      console.error('Error stopping or saving recording', err);
+      console.error('❌ Error stopping/saving/transcribing:', err);
     }
   };
 
   return (
-    <View style={{ padding: 20 }}>
+    <View style={styles.container}>
       <Button title="Start Recording" onPress={startRecording} disabled={!!recording} />
       <Button title="Stop Recording" onPress={stopRecording} disabled={!recording} />
-      {uri && <Text style={{ marginTop: 20 }}>Saved recording: {uri}</Text>}
-      {transcript && <Text style={{ marginTop: 20, fontStyle: 'italic' }}>Transcript: {transcript}</Text>}
-      {summary && <Text style={{ marginTop: 20, fontWeight: 'bold' }}>Summary: {summary}</Text>}
+
+      {uri && <Text style={styles.uriText}>Saved recording: {uri}</Text>}
+
+      {transcript.length > 0 && (
+        <>
+          <Text style={styles.transcriptLabel}>Transcript:</Text>
+          <FlatList
+            data={transcript}
+            renderItem={({ item }) => (
+              <View style={styles.bubble}>
+                <Text style={styles.bubbleText}>{item}</Text>
+              </View>
+            )}
+            keyExtractor={(item, index) => index.toString()}
+          />
+        </>
+      )}
+
+      <TabbedSection transcript={transcript} />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+  },
+  uriText: {
+    marginTop: 10,
+    color: 'gray',
+  },
+  transcriptLabel: {
+    marginTop: 20,
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  bubble: {
+    backgroundColor: '#f0f0f0',
+    padding: 10,
+    borderRadius: 12,
+    marginVertical: 5,
+    alignSelf: 'flex-start',
+  },
+  bubbleText: {
+    fontSize: 16,
+    color: '#333',
+  },
+});
 
 export default TranscriptScreen;
