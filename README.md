@@ -16,11 +16,12 @@ This project is a React Native (Expo) application implementing the core requirem
 -  **Expo Tunnel** – Remote access via Expo’s public tunnel
 
 ---
-<img width="1430" alt="image" src="https://github.com/user-attachments/assets/8e7e3394-1405-4bf9-bb79-da08d7c072e1" />
+<img width="1440" alt="Screenshot 2025-06-06 at 2 03 17 PM" src="https://github.com/user-attachments/assets/7fbde757-8fbb-4b6e-b906-617a808795bf" />
+<img width="1440" alt="Screenshot 2025-06-06 at 2 03 33 PM" src="https://github.com/user-attachments/assets/f7ce8780-16e0-4674-ae54-3ba005b1aa3f" />
+<img width="1440" alt="Screenshot 2025-06-06 at 2 03 40 PM" src="https://github.com/user-attachments/assets/e39a118b-bdd2-41a6-9bb5-47c7c37f6128" />
+<img width="1440" alt="Screenshot 2025-06-06 at 2 03 46 PM" src="https://github.com/user-attachments/assets/a3a3fadd-e4d0-45a5-aff6-131b5d5ab35f" />
 
-<img width="1430" alt="image" src="https://github.com/user-attachments/assets/8d497d40-db09-45bc-bc3f-1ea30f5fe738" />
 
-<img width="1430" alt="image" src="https://github.com/user-attachments/assets/0a486bd9-a9ae-4a45-8e93-0687b4aa1390" />
 
 
 ##  How to Run the App
